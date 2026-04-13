@@ -12,16 +12,10 @@ npx playwright install
 npm run seed
 ```
 
-Then in one terminal:
+Then start both servers:
 
 ```bash
-npm run dev:backend
-```
-
-And in another terminal:
-
-```bash
-npm run dev:frontend
+npm run dev
 ```
 
 Open http://localhost:5173 and log in with `admin@crm.com` / `password123`.
@@ -54,6 +48,14 @@ mini-crm/
 - Password: `password123`
 
 ## Callable Tools
+
+### Start both servers
+
+```bash
+npm run dev
+```
+
+Starts the backend (port 3001) and frontend (port 5173) concurrently in one terminal.
 
 ### Start the backend server
 
