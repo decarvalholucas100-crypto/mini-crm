@@ -2,6 +2,30 @@
 
 A local CRM application with Express.js backend, React frontend, and SQLite database.
 
+## Quick Start
+
+```bash
+git clone <repo-url> && cd mini-crm
+npm install
+cd frontend && npm install && cd ..
+npx playwright install
+npm run seed
+```
+
+Then in one terminal:
+
+```bash
+npm run dev:backend
+```
+
+And in another terminal:
+
+```bash
+npm run dev:frontend
+```
+
+Open http://localhost:5173 and log in with `admin@crm.com` / `password123`.
+
 ## Project Structure
 
 ```
@@ -58,7 +82,7 @@ Creates/resets the SQLite database with 10 sample records per table and the defa
 ### Run the Playwright test
 
 ```bash
-PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers npx playwright test
+npx playwright test
 ```
 
 Runs the end-to-end test that logs in, creates a contact via the UI, and verifies it in the database.
@@ -67,5 +91,5 @@ The Playwright config auto-starts both backend and frontend servers.
 ### Run all (seed + test)
 
 ```bash
-node server/seed.js && PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers npx playwright test
+node server/seed.js && npx playwright test
 ```
