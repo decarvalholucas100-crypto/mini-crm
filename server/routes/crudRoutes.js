@@ -60,9 +60,16 @@ function createCrudRouter(tableName, columns) {
   // DELETE
   router.delete('/:id', (req, res) => {
     const db = getDb();
-    const result = db.prepare(`DELETE FROM ${tableName} WHERE id = ?`).run(req.params.id);
-    if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
-    res.json({ message: 'Deleted successfully' });
+    try {
+      const result = db.prepare(`DELETE FROM ${tableName} WHERE id = ?`).run(req.params.id);
+      if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
+      res.json({ message: 'Deleted successfully' });
+    } catch (err) {
+      if (err.code === 'SQLITE_CONSTRAINT_FOREIGNKEY') {
+        return res.status(409).json({ error: 'Cannot delete: other records reference this item. Delete those first.' });
+      }
+      return res.status(500).json({ error: 'Delete failed' });
+    }
   });
 
   return router;

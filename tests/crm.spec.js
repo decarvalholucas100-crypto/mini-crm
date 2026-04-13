@@ -39,8 +39,8 @@ test('login, create contact with org and deal, verify in database', async ({ pag
   // 7. Submit the form
   await page.click('button.btn-create');
 
-  // 8. Wait for success message
-  await expect(page.locator('.success-msg')).toHaveText('Contact created successfully!', { timeout: 5000 });
+  // 8. Wait for form to close and data to appear
+  await expect(page.locator('[data-testid="create-contact-form"]')).not.toBeVisible({ timeout: 5000 });
 
   // 9. Verify all three records appear in the tables
   await expect(page.locator('text=Playwright TestUser').first()).toBeVisible();
