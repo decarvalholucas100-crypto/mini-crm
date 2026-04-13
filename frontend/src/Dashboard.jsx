@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAll, createRecord } from './api';
+import DetailModal from './DetailModal';
 
 const EMPTY_FORM = {
   first_name: '',
@@ -22,6 +23,7 @@ export default function Dashboard({ onLogout }) {
   const [formData, setFormData] = useState(EMPTY_FORM);
   const [formMsg, setFormMsg] = useState('');
   const [formError, setFormError] = useState('');
+  const [modal, setModal] = useState(null); // { type, record }
 
   useEffect(() => {
     loadData();
@@ -208,7 +210,7 @@ export default function Dashboard({ onLogout }) {
           </thead>
           <tbody>
             {orgs.map((o) => (
-              <tr key={o.id}>
+              <tr key={o.id} className="clickable-row" onClick={() => setModal({ type: 'organizations', record: o })}>
                 <td>{o.name}</td>
                 <td>{o.industry}</td>
                 <td>{o.website}</td>
@@ -232,7 +234,7 @@ export default function Dashboard({ onLogout }) {
           </thead>
           <tbody>
             {contacts.map((c) => (
-              <tr key={c.id}>
+              <tr key={c.id} className="clickable-row" onClick={() => setModal({ type: 'contacts', record: c })}>
                 <td>{c.first_name} {c.last_name}</td>
                 <td>{c.email}</td>
                 <td>{c.phone}</td>
@@ -258,7 +260,7 @@ export default function Dashboard({ onLogout }) {
           </thead>
           <tbody>
             {deals.map((d) => (
-              <tr key={d.id}>
+              <tr key={d.id} className="clickable-row" onClick={() => setModal({ type: 'deals', record: d })}>
                 <td>{d.title}</td>
                 <td>{formatCurrency(d.value)}</td>
                 <td>
@@ -273,6 +275,18 @@ export default function Dashboard({ onLogout }) {
           </tbody>
         </table>
       </div>
+
+      {modal && (
+        <DetailModal
+          type={modal.type}
+          record={modal.record}
+          contacts={contacts}
+          organizations={orgs}
+          deals={deals}
+          onClose={() => setModal(null)}
+          onRefresh={() => { setModal(null); loadData(); }}
+        />
+      )}
     </div>
   );
 }

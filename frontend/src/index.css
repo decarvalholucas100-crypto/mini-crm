@@ -295,3 +295,217 @@ tr:hover td {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
+
+/* Clickable rows */
+tbody .clickable-row {
+  cursor: pointer;
+}
+
+tbody .clickable-row:hover td {
+  background: #eef0ff;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  font-size: 1.15rem;
+  color: #333;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  line-height: 1;
+  padding: 0 0.25rem;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.modal-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #888;
+}
+
+.modal-field span {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.modal-field input,
+.modal-field select {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.modal-field input:focus,
+.modal-field select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Related data */
+.modal-related {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.related-section {
+  margin-bottom: 1rem;
+}
+
+.related-section h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.related-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.related-row span:first-child {
+  color: #888;
+}
+
+/* Modal action buttons */
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.btn-edit {
+  padding: 0.5rem 1.25rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.btn-edit:hover {
+  background: #5a6fd6;
+}
+
+.btn-save {
+  padding: 0.5rem 1.25rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.btn-save:hover {
+  background: #219a52;
+}
+
+.btn-cancel {
+  padding: 0.5rem 1.25rem;
+  background: #eee;
+  color: #555;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.btn-cancel:hover {
+  background: #ddd;
+}
+
+.btn-delete {
+  padding: 0.5rem 1.25rem;
+  background: white;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.btn-delete:hover {
+  background: #fdf0ef;
+}
+
+.btn-delete-confirm {
+  padding: 0.5rem 1.25rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.btn-delete-confirm:hover {
+  background: #c0392b;
+}
+
+.delete-confirm-text {
+  font-size: 0.9rem;
+  color: #e74c3c;
+  margin-left: auto;
+}
