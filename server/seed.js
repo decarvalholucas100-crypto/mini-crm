@@ -27,6 +27,7 @@ const orgs = [
   ['Soylent Corp', 'Food & Beverage', 'https://soylent.com'],
   ['Oscorp', 'Biotech', 'https://oscorp.com'],
   ['Wonka Industries', 'Confectionery', 'https://wonka.com'],
+  ['Vantage STR', 'Vibe Coding', 'https://vantagestr.co'],
 ];
 
 const insertOrg = db.prepare('INSERT INTO organizations (name, industry, website) VALUES (?, ?, ?)');
@@ -46,6 +47,7 @@ const contacts = [
   ['Frank', 'Ocean', 'frank@soylent.com', '555-0108', 8],
   ['Peter', 'Parker', 'peter@oscorp.com', '555-0109', 9],
   ['Charlie', 'Bucket', 'charlie@wonka.com', '555-0110', 10],
+  ['Lucas', 'Carvalho', 'lucardcarv@gmail.com', '9035011991', 11],
 ];
 
 const insertContact = db.prepare('INSERT INTO contacts (first_name, last_name, email, phone, organization_id) VALUES (?, ?, ?, ?, ?)');
@@ -65,6 +67,7 @@ const deals = [
   ['Supply Chain Deal', 67000, 'prospecting', 8, 8],
   ['Research Grant', 95000, 'negotiation', 9, 9],
   ['Distribution Deal', 130000, 'closed_won', 10, 10],
+  ['Best Hire Ever', 1000000, 'hire_this_guy', 11, 11],
 ];
 
 const insertDeal = db.prepare('INSERT INTO deals (title, value, stage, contact_id, organization_id) VALUES (?, ?, ?, ?, ?)');

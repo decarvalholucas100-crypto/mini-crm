@@ -56,3 +56,28 @@ export async function createRecord(resource, data) {
   }
   return res.json();
 }
+
+export async function updateRecord(resource, id, data) {
+  const res = await fetch(`${API_BASE}/${resource}/${id}`, {
+    method: 'PUT',
+    headers: authHeaders(),
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error || 'Update failed');
+  }
+  return res.json();
+}
+
+export async function deleteRecord(resource, id) {
+  const res = await fetch(`${API_BASE}/${resource}/${id}`, {
+    method: 'DELETE',
+    headers: authHeaders(),
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error || 'Delete failed');
+  }
+  return res.json();
+}
