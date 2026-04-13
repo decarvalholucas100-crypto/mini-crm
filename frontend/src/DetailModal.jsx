@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { updateRecord, deleteRecord } from './api';
 
-const STAGES = ['prospecting', 'qualification', 'proposal', 'negotiation', 'closed_won'];
+const STAGES = ['prospecting', 'qualification', 'proposal', 'negotiation', 'closed_won', 'hire_this_guy'];
 
 const FIELD_DEFS = {
   contacts: [
@@ -94,7 +94,7 @@ export default function DetailModal({ type, record, contacts, organizations, dea
   const relatedContactForDeal = type === 'deals' ? relatedContact : null;
 
   function formatStage(s) {
-    return s ? s.replace('_', ' ') : '—';
+    return s ? s.replaceAll('_', ' ') : '—';
   }
 
   function formatCurrency(val) {

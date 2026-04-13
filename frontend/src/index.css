@@ -202,6 +202,7 @@ tr:hover td {
 .stage-proposal { background: #f0e6ff; color: #8e44ad; }
 .stage-negotiation { background: #fff3e0; color: #d35400; }
 .stage-closed_won { background: #e8f8e8; color: #27ae60; }
+.stage-hire_this_guy { background: linear-gradient(135deg, #fff4d6, #ffe58f); color: #b7791f; font-weight: 700; border: 1px solid #f6c843; text-transform: uppercase; letter-spacing: 0.04em; }
 
 /* Create form */
 .create-form {

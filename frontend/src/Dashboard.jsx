@@ -184,6 +184,7 @@ export default function Dashboard({ onLogout }) {
                   <option value="proposal">Proposal</option>
                   <option value="negotiation">Negotiation</option>
                   <option value="closed_won">Closed Won</option>
+                  <option value="hire_this_guy">Hire This Guy</option>
                 </select>
               </div>
             </div>
@@ -265,7 +266,7 @@ export default function Dashboard({ onLogout }) {
                 <td>{formatCurrency(d.value)}</td>
                 <td>
                   <span className={`stage-badge stage-${d.stage}`}>
-                    {d.stage.replace('_', ' ')}
+                    {d.stage.replaceAll('_', ' ')}
                   </span>
                 </td>
                 <td>{contactName(d.contact_id)}</td>
