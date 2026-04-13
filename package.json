@@ -1,0 +1,22 @@
+{
+  "name": "mini-crm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:backend": "node server/index.js",
+    "dev:frontend": "cd frontend && npx vite --port 5173",
+    "test:e2e": "npx playwright test",
+    "seed": "node server/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.9.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "playwright": "^1.56.0"
+  }
+}
