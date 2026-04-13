@@ -86,8 +86,8 @@ export default function Dashboard({ onLogout }) {
         await createRecord('deals', dealPayload);
       }
 
-      setFormMsg('Contact created successfully!');
       setFormData(EMPTY_FORM);
+      setShowForm(false);
       loadData();
     } catch (err) {
       setFormError(err.message);
